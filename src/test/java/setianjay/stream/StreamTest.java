@@ -4,6 +4,9 @@ import org.junit.jupiter.api.*;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -82,6 +85,92 @@ class StreamTest {
 
             long countStreamContent = streamNumbers.mapToInt(Integer::intValue).count();
             assertEquals(10, countStreamContent);
+        }
+    }
+
+    @Nested
+    @DisplayName(value = "When Transformed")
+    @Order(value = 2)
+    @TestMethodOrder(value = MethodOrderer.OrderAnnotation.class)
+    class TransformationStreamTest {
+
+        @Test
+        @DisplayName("using map")
+        @Order(value = 1)
+        void testTransformedWithMap() {
+            // get Collection Map from a Stream in first way
+            Map<Integer, String> mapFromStream = Stream.of(
+                            "Setyarto",
+                            "Sudaryati",
+                            "Gurindo Sekti",
+                            "Hari Setiaji"
+                    )
+                    // map from capitalize name to uppercase name like {SETYARTO, SUDARYATI, ...}
+                    .map(String::toUpperCase)
+                    // collect stream and convert to Map
+                    .collect(Collectors.toMap(
+                            String::length, // set data for key
+                            upperName -> upperName // set data for value
+                    ));
+
+            // result {8: SETYARTO, 9: SUDARYATI, ...}
+            System.out.println(mapFromStream);
+            assertEquals(4, mapFromStream.size());
+
+
+            // get Collection Map from a Stream in second way (with content of stream is array)
+            Map<Integer, String> mapFromStream2 = Stream.of(
+                            "Setyarto",
+                            "Sudaryati",
+                            "Gurindo Sekti",
+                            "Hari Setiaji"
+                    )
+                    // map from capitalize name to uppercase name like {SETYARTO, SUDARYATI, ...}
+                    .map(String::toUpperCase)
+                    // map content of stream from String to array object
+                    .map((upperName) -> new Object[]{upperName.length(), upperName})
+                    // collect stream and convert to Map<Integer, String>
+                    .collect(Collectors.toMap(
+                            lengthName -> (Integer) lengthName[0],
+                            upperName -> (String) upperName[1]
+                    ));
+
+            // result {8: SETYARTO, 9: SUDARYATI, ...}
+            System.out.println(mapFromStream2);
+            assertEquals(4, mapFromStream2.size());
+        }
+
+        @Test
+        @DisplayName("using flatMap")
+        @Order(value = 2)
+        void testTransformedWithFlatMap() {
+            Map<Integer, String> mapFromStream = Stream.of(
+                            "Setyarto",
+                            "Sudaryati",
+                            "Gurindo Sekti",
+                            "Hari Setiaji"
+                    )
+                    /*
+                     * Map content of stream from String to Stream<String>, then the result is Stream<Stream<String>>.
+                     * because we use flatMap, the result Stream<Stream<String>> will merge or flatten the stream to be
+                     * Stream<String>.
+                     *
+                     * example for the result:
+                     * - In process will return:
+                     * Stream(Stream("HARI SETIAJI"), Stream("SUDARYATI"), Stream("GURINDO SEKTI"), Stream("SETYARTO")
+                     *
+                     * - Because we use flatMap, the Final result like below (merge all Stream into single Stream):
+                     * Stream("HARI SETIAJI", "SUDARYATI", "GURINDO SEKTI", "SETYARTO")
+                     * */
+                    .flatMap((name) -> Stream.of(name.toUpperCase()))
+                    .collect(Collectors.toMap(
+                            data -> Math.abs(new Random().nextInt()),
+                            data -> data)
+                    );
+
+            // result {RANDOM NUMBER: SETYARTO, ...}
+            System.out.println(mapFromStream);
+            assertEquals(4, mapFromStream.size());
         }
     }
 

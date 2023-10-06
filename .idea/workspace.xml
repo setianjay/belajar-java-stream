@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d31f5ae4-e33a-4d6a-98e1-6dfae29bfe8a" name="Changes" comment="Initial commit">
+    <list default="true" id="d31f5ae4-e33a-4d6a-98e1-6dfae29bfe8a" name="Changes" comment="test(transformation): Implement tests to transform a stream or stream content into another form&#10;&#10;This test shows how to convert a stream or stream content into another&#10;form. For example, converting stream content that previously had an&#10;Integer data type into a String data type. And also can change the&#10;stream into a collection such as List, Set, and Map. However, this test&#10;only converts Stream to a Map collection.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/setianjay/stream/StreamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/setianjay/stream/StreamTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +46,7 @@
     &quot;last_opened_file_path&quot;: &quot;D:/Budel/TestFolder/Array/Person.java&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.StreamTest$AggregateStreamTest">
+  <component name="RunManager" selected="JUnit.StreamTest">
     <configuration name="StreamTest$AggregateStreamTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="belajar-java-stream" />
       <extension name="coverage">
@@ -56,6 +57,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="setianjay.stream.StreamTest" />
       <option name="MAIN_CLASS_NAME" value="setianjay.stream.StreamTest$AggregateStreamTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StreamTest$CreateStreamTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="belajar-java-stream" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="setianjay.stream.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="setianjay.stream.StreamTest" />
+      <option name="MAIN_CLASS_NAME" value="setianjay.stream.StreamTest$CreateStreamTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -93,22 +109,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StreamTest$FilteringStreamTest.testFilterStreamUsingGroupBy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="belajar-java-stream" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="setianjay.stream.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="setianjay.stream.StreamTest" />
-      <option name="MAIN_CLASS_NAME" value="setianjay.stream.StreamTest$FilteringStreamTest" />
-      <option name="METHOD_NAME" value="testFilterStreamUsingGroupBy" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="StreamTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="belajar-java-stream" />
       <extension name="coverage">
@@ -126,11 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StreamTest$AggregateStreamTest" />
         <item itemvalue="JUnit.StreamTest" />
+        <item itemvalue="JUnit.StreamTest$CreateStreamTest" />
+        <item itemvalue="JUnit.StreamTest$AggregateStreamTest" />
         <item itemvalue="JUnit.StreamTest$CreateStreamTest.testCreateStreamFromArray" />
         <item itemvalue="JUnit.StreamTest$CreateStreamTest.testCreateStreamFromList" />
-        <item itemvalue="JUnit.StreamTest$FilteringStreamTest.testFilterStreamUsingGroupBy" />
       </list>
     </recent_temporary>
   </component>
@@ -150,11 +150,53 @@
       <option name="project" value="LOCAL" />
       <updated>1695717837187</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="test(create): Implement tests for the creation of a stream&#10;&#10;This test shows how to create empty stream, single stream, and nullable&#10;stream. It also shows how to create streams from arrays and lists.">
+      <created>1696611063828</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696611063828</updated>
+    </task>
+    <task id="LOCAL-00003" summary="test(create): Implement tests for the creation of a stream&#10;&#10;This test shows how to create empty stream, single stream, and nullable&#10;stream. It also shows how to create streams from arrays and lists.">
+      <created>1696611413492</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1696611413492</updated>
+    </task>
+    <task id="LOCAL-00004" summary="test(creation): Implement tests for the creation of a stream&#10;&#10;This test shows how to create empty stream, single stream, and nullable&#10;stream. It also shows how to create streams from arrays and lists.">
+      <created>1696611478738</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696611478738</updated>
+    </task>
+    <task id="LOCAL-00005" summary="test(transformation): Implement tests to transform a stream or stream content into another form&#10;&#10;This test shows how to convert a stream or stream content into another&#10;form. For example, converting stream content that previously had an&#10;Integer data type into a String data type. And also can change the&#10;stream into a collection such as List, Set, and Map. However, this test&#10;only converts Stream to a Map collection.">
+      <created>1696612052207</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1696612052207</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="test(create): Implement tests for the creation of a stream&#10;&#10;This test shows how to create empty stream, single stream, and nullable&#10;stream. It also shows how to create streams from arrays and lists." />
+    <MESSAGE value="test(creation): Implement tests for the creation of a stream&#10;&#10;This test shows how to create empty stream, single stream, and nullable&#10;stream. It also shows how to create streams from arrays and lists." />
+    <MESSAGE value="test(transformation): Implement tests to transform a stream or stream content into another form&#10;&#10;This test shows how to convert a stream or stream content into another&#10;form. For example, converting stream content that previously had an&#10;Integer data type into a String data type. And also can change the&#10;stream into a collection such as List, Set, and Map. However, this test&#10;only converts Stream to a Map collection." />
+    <option name="LAST_COMMIT_MESSAGE" value="test(transformation): Implement tests to transform a stream or stream content into another form&#10;&#10;This test shows how to convert a stream or stream content into another&#10;form. For example, converting stream content that previously had an&#10;Integer data type into a String data type. And also can change the&#10;stream into a collection such as List, Set, and Map. However, this test&#10;only converts Stream to a Map collection." />
   </component>
 </project>
