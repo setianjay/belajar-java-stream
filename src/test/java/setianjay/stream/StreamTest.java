@@ -174,4 +174,59 @@ class StreamTest {
         }
     }
 
+    @Nested
+    @DisplayName(value = "When Filtered")
+    @Order(value = 3)
+    @TestMethodOrder(value = MethodOrderer.DisplayName.class)
+    class FilteringStreamTest {
+
+        @Test
+        @DisplayName(value = "using distinct")
+        void testFilterStreamUsingDistinct() {
+            long streamSize = Stream.of("Hari", "Hari", "Hari", "Gurindo", "Gurindo", "Setyarto", "Sudaryati")
+                    .distinct() // delete or drop data if they duplicate
+                    .peek(System.out::println) // result : {"Hari", "Gurindo", "Setyarto", "Sudaryati"}
+                    .count();
+
+            assertEquals(4, streamSize);
+        }
+
+        @Test
+        @DisplayName(value = "using filter")
+        void testFilterStreamUsingFilter() {
+            long streamSize = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                    .filter(number -> number % 2 == 0) // only take even data
+                    .peek(System.out::println) // result {2, 4, 6, 8, 10}
+                    .count();
+
+            assertEquals(5, streamSize);
+        }
+
+        @Test
+        @DisplayName(value = "using groupBy")
+        void testFilterStreamUsingGroupBy(){
+            Map<String, List<Integer>> groupOfNumberBasedOnEvenOrOdd = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                    .collect(Collectors.groupingBy((number) -> (number % 2 == 0) ? "Even" : "Odd"));
+
+            // result is map {"Even": [2, 4, 6, 8, 10], "Odd": [1, 3, 5, 7, 9]}
+            System.out.println(groupOfNumberBasedOnEvenOrOdd);
+            assertEquals(2, groupOfNumberBasedOnEvenOrOdd.size());
+        }
+
+        @Test
+        @DisplayName(value = "using partitionBy")
+        void testFilterStreamUsingPartitionBy(){
+            Map<Boolean, List<Integer>> groupOfNumberBasedOnEvenOrOdd = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                    .collect(Collectors.partitioningBy((number) -> (number % 2 == 0)));
+
+            /*
+            * the result is same with Collectors.groupingBy, the only difference is the key. if we use partitionBy then
+            * the key is a boolean data type (true or false). But if we use groupingBy, the key can be of any data type
+            * (free).
+            * */
+            //  map {false: [1, 3, 5, 7, 9], true: [2, 4, 6, 8, 10]}
+            System.out.println(groupOfNumberBasedOnEvenOrOdd);
+            assertEquals(2, groupOfNumberBasedOnEvenOrOdd.size());
+        }
+    }
 }
