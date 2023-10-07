@@ -229,4 +229,80 @@ class StreamTest {
             assertEquals(2, groupOfNumberBasedOnEvenOrOdd.size());
         }
     }
+
+    @Nested
+    @DisplayName(value = "When Retrieved Data")
+    @Order(value = 4)
+    @TestMethodOrder(value = MethodOrderer.OrderAnnotation.class)
+    class RetrievingStreamTest {
+
+
+        @Test
+        @DisplayName(value = "using limit")
+        @Order(value = 1)
+        void testRetrieveStreamDataUsingLimit() {
+            long streamSize = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                    .limit(5) // take 5 data from the first data
+                    .peek(System.out::println) // result {1, 2, 3, 4, 5}
+                    .count();
+
+            assertEquals(5, streamSize);
+        }
+
+        @Test
+        @DisplayName(value = "using skip")
+        @Order(value = 2)
+        void testRetrieveStreamDataUsingSkip() {
+            long streamSize = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                    .skip(5) // skip 5 data from the first data
+                    .peek(System.out::println) // result {6, 7, 8, 9, 10}
+                    .count();
+
+            assertEquals(5, streamSize);
+        }
+
+        @Test
+        @DisplayName(value = "using findAny")
+        @Order(value = 3)
+        void testRetrieveStreamDataUsingFindAny() {
+            Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                    .findAny() // take one random value in stream. result {random}
+                    .ifPresent(Assertions::assertNotNull);
+        }
+
+        @Test
+        @DisplayName(value = "using findFirst")
+        @Order(value = 4)
+        void testRetrieveStreamDataUsingFindFirst() {
+            Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                    .findFirst() // find first value in stream. result {1}
+                    .ifPresent(Assertions::assertNotNull);
+        }
+
+        @Test
+        @DisplayName(value = "using takeWhile")
+        @Order(value = 5)
+        void testRetrieveStreamDataUsingTakeWhile() {
+            long streamSize = Stream.of(1, 2, 1, 3, 2, 4, 5, 6, 7, 8, 9, 10)
+                    // retrieve data if met with condition, otherwise stop data collection
+                    .takeWhile(data -> data < 3)
+                    .peek(System.out::println) // result {1, 2, 1}
+                    .count();
+
+            assertEquals(3, streamSize);
+        }
+
+        @Test
+        @DisplayName(value = "using dropWhile")
+        @Order(value = 6)
+        void testRetrieveStreamDataUsingDropWhile() {
+            long streamSize = Stream.of(1, 2, 1, 3, 2, 4, 5, 6, 7, 8, 2, 9, 10)
+                    // drop data if met with condition, otherwise stop data collection and retrieve the remaining data
+                    .dropWhile(data -> data < 4)
+                    .peek(System.out::println) // {1, 2, 1, 3, 2} will be drop, final result is {4, 5, 6, 7, 8, 2, 9, 10}
+                    .count();
+
+            assertEquals(8, streamSize);
+        }
+    }
 }
