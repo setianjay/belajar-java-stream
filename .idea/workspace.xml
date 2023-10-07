@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d31f5ae4-e33a-4d6a-98e1-6dfae29bfe8a" name="Changes" comment="test(filtering): Implement tests to filter the content in a stream based on the specified conditions&#10;&#10;This test shows how to filter the content in the stream using distinct,&#10;filter, groupingBy, and partitionBy operators.">
+    <list default="true" id="d31f5ae4-e33a-4d6a-98e1-6dfae29bfe8a" name="Changes" comment="test(sorting): Implement tests to sort the contents in a stream&#10;&#10;This test shows how to sort the content in a stream using the sorted&#10;operator, either with or without a comparator.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/setianjay/stream/StreamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/setianjay/stream/StreamTest.java" afterDir="false" />
     </list>
@@ -213,7 +213,21 @@
       <option name="project" value="LOCAL" />
       <updated>1696665264145</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="test(retrieving): Implement tests to retrieve the content in a stream&#10;&#10;This test shows how to retrieve a content in a stream using limit,&#10;findAny, findFirst, takeWhile, and dropWhile operators.">
+      <created>1696665428533</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1696665428533</updated>
+    </task>
+    <task id="LOCAL-00012" summary="test(sorting): Implement tests to sort the contents in a stream&#10;&#10;This test shows how to sort the content in a stream using the sorted&#10;operator, either with or without a comparator.">
+      <created>1696665781911</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1696665781911</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -236,6 +250,8 @@
     <MESSAGE value="test(transformation): Implement tests to transform a stream or stream content into another form&#10;&#10;This test shows how to convert a stream or stream content into another&#10;form. For example, converting stream content that previously had an&#10;Integer data type into a String data type using map or flatMap&#10;operation. And also can change the stream into a collection such as&#10;List, Set, and Map using collect operation. However, this test only&#10;converts Stream to a Map collection." />
     <MESSAGE value="test(filtering): Implement tests to filter the content in the stream based on the specified conditions&#10;&#10;This test shows how to filter the content in the stream using distinct,&#10;filter, groupingBy, and partitionBy operators." />
     <MESSAGE value="test(filtering): Implement tests to filter the content in a stream based on the specified conditions&#10;&#10;This test shows how to filter the content in the stream using distinct,&#10;filter, groupingBy, and partitionBy operators." />
-    <option name="LAST_COMMIT_MESSAGE" value="test(filtering): Implement tests to filter the content in a stream based on the specified conditions&#10;&#10;This test shows how to filter the content in the stream using distinct,&#10;filter, groupingBy, and partitionBy operators." />
+    <MESSAGE value="test(retrieving): Implement tests to retrieve the content in a stream&#10;&#10;This test shows how to retrieve a content in a stream using limit,&#10;findAny, findFirst, takeWhile, and dropWhile operators." />
+    <MESSAGE value="test(sorting): Implement tests to sort the contents in a stream&#10;&#10;This test shows how to sort the content in a stream using the sorted&#10;operator, either with or without a comparator." />
+    <option name="LAST_COMMIT_MESSAGE" value="test(sorting): Implement tests to sort the contents in a stream&#10;&#10;This test shows how to sort the content in a stream using the sorted&#10;operator, either with or without a comparator." />
   </component>
 </project>

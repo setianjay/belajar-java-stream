@@ -372,4 +372,76 @@ class StreamTest {
             assertEquals(10, sortedListFromStream.size());
         }
     }
+
+    @Nested
+    @DisplayName(value = "When Aggregate")
+    @Order(value = 6)
+    @TestMethodOrder(value = MethodOrderer.DisplayName.class)
+    class AggregateStreamTest {
+
+        @Test
+        @DisplayName(value = "with min")
+        void testMin() {
+            int min = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                    .min(Comparator.naturalOrder()) // result 1, because 10 is max content in a stream
+                    .orElse(100);
+
+            assertEquals(1, min);
+            assertNotEquals(100, min);
+        }
+
+        @Test
+        @DisplayName(value = "with max")
+        void testMax() {
+            int max = Stream.of("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
+                    .mapToInt(Integer::parseInt)
+                    .max() // result 10, because 10 is max content in a stream
+                    .orElse(0);
+
+            assertEquals(10, max);
+            assertNotEquals(0, max);
+        }
+
+        @Test
+        @DisplayName(value = "with reduce")
+        void testSum() {
+            int result = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                    .reduce(0, Integer::sum); // sum all value in stream
+
+            assertEquals(55, result);
+        }
+
+        @Test
+        @DisplayName(value = "with average")
+        void testAverage() {
+            double result = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                    .mapToInt(Integer::intValue)
+                    .average() // result is sum content / n = 55 / 10 => 5.5
+                    .orElse(0.0);
+
+            assertEquals(5.5, result);
+        }
+
+        @Test
+        @DisplayName(value = "factorial with reduce")
+        void testFactorial() {
+            int result = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                    /*
+                     * value (first process value is identity, next is result from operation) * item (content)
+                     * 1 x 1        = 1
+                     * 1 x 2        = 2
+                     * 2 x 3        = 6
+                     * 6 x 4        = 24
+                     * 24 x 5       = 120
+                     * 120 x 6      = 720
+                     * 720 x 7      = 5_040
+                     * 5040 x 8     = 4_0320
+                     * 40320 x 9    = 362_880
+                     * 362880 x 10  = 3_628_800
+                     * */
+                    .reduce(1, (value, item) -> value * item);
+
+            assertEquals(3628800, result);
+        }
+    }
 }
