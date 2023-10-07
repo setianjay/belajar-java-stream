@@ -492,4 +492,42 @@ class StreamTest {
             assertTrue(isAllNoneMatch);
         }
     }
+
+    @Nested
+    @DisplayName(value = "When Execution")
+    @Order(value = 8)
+    @TestMethodOrder(value = MethodOrderer.OrderAnnotation.class)
+    class ExecutionStreamTest{
+        Stream<Integer> numbers;
+
+        @BeforeEach
+        void setup(){
+            numbers = Stream.of(1, 2, 3, 4, 5, 21, 6, 7, 8, 9, 10);
+        }
+
+        @AfterEach
+        void shutdown(){
+            numbers = null;
+        }
+
+        @Test
+        @DisplayName(value = "sequentially or synchronous")
+        @Order(value = 1)
+        void testStreamSequentiallyExecution(){
+            numbers.forEach((item) -> {
+                // execution item with same thread (default)
+                System.out.println("Execution Item: " + item + ", with Thread: " + Thread.currentThread().getName());
+            });
+        }
+
+        @Test
+        @DisplayName(value = "parallel")
+        @Order(value = 2)
+        void testStreamParallelExecution(){
+            numbers.parallel().forEach((item) -> {
+                // execution item with different thread
+                System.out.println("Execution Item: " + item + ", with Thread: " + Thread.currentThread().getName());
+            });
+        }
+    }
 }

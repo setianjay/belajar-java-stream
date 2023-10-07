@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d31f5ae4-e33a-4d6a-98e1-6dfae29bfe8a" name="Changes" comment="test(sorting): Implement tests to sort the contents in a stream&#10;&#10;This test shows how to sort the content in a stream using the sorted&#10;operator, either with or without a comparator.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/setianjay/stream/StreamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/setianjay/stream/StreamTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="d31f5ae4-e33a-4d6a-98e1-6dfae29bfe8a" name="Changes" comment="test(execution): Implement tests to know execution in a stream can run sequentially and parallel" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,22 +43,7 @@
     &quot;last_opened_file_path&quot;: &quot;D:/Budel/TestFolder/Array/Person.java&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.StreamTest$CheckedStreamTest">
-    <configuration name="StreamTest$AggregateStreamTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="belajar-java-stream" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="setianjay.stream.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="setianjay.stream.StreamTest" />
-      <option name="MAIN_CLASS_NAME" value="setianjay.stream.StreamTest$AggregateStreamTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.StreamTest$ExecutionStreamTest.testStreamParallelExecution">
     <configuration name="StreamTest$CheckedStreamTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="belajar-java-stream" />
       <extension name="coverage">
@@ -77,7 +59,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StreamTest$CreateStreamTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StreamTest$ExecutionStreamTest.testStreamParallelExecution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="belajar-java-stream" />
       <extension name="coverage">
         <pattern>
@@ -86,8 +68,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="setianjay.stream.StreamTest" />
-      <option name="MAIN_CLASS_NAME" value="setianjay.stream.StreamTest$CreateStreamTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="setianjay.stream.StreamTest$ExecutionStreamTest" />
+      <option name="METHOD_NAME" value="testStreamParallelExecution" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StreamTest$ExecutionStreamTest.testStreamSequentiallyExecution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="belajar-java-stream" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="setianjay.stream.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="setianjay.stream.StreamTest" />
+      <option name="MAIN_CLASS_NAME" value="setianjay.stream.StreamTest$ExecutionStreamTest" />
+      <option name="METHOD_NAME" value="testStreamSequentiallyExecution" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,11 +124,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.StreamTest$ExecutionStreamTest.testStreamParallelExecution" />
+        <item itemvalue="JUnit.StreamTest$ExecutionStreamTest.testStreamSequentiallyExecution" />
         <item itemvalue="JUnit.StreamTest$CheckedStreamTest" />
         <item itemvalue="JUnit.StreamTest" />
         <item itemvalue="JUnit.StreamTest$RetrievingStreamTest.testRetrieveStreamDataUsingDropWhile" />
-        <item itemvalue="JUnit.StreamTest$CreateStreamTest" />
-        <item itemvalue="JUnit.StreamTest$AggregateStreamTest" />
       </list>
     </recent_temporary>
   </component>
@@ -226,7 +225,28 @@
       <option name="project" value="LOCAL" />
       <updated>1696665781911</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="test(aggregation): Implement tests to aggregate the contents in a stream&#10;&#10;This test shows how to aggregate the content in a stream using min, max,&#10;average and reduce operators.">
+      <created>1696668564729</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1696668564729</updated>
+    </task>
+    <task id="LOCAL-00014" summary="test(checking): Implement tests to check the contents in a stream&#10;&#10;This test shows how to check the contents in a stream using anyMatch,&#10;allMatch, and noneMatch operators.">
+      <created>1696668757143</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1696668757143</updated>
+    </task>
+    <task id="LOCAL-00015" summary="test(execution): Implement tests to know execution in a stream can run sequentially and parallel">
+      <created>1696671154395</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1696671154395</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,6 +271,9 @@
     <MESSAGE value="test(filtering): Implement tests to filter the content in a stream based on the specified conditions&#10;&#10;This test shows how to filter the content in the stream using distinct,&#10;filter, groupingBy, and partitionBy operators." />
     <MESSAGE value="test(retrieving): Implement tests to retrieve the content in a stream&#10;&#10;This test shows how to retrieve a content in a stream using limit,&#10;findAny, findFirst, takeWhile, and dropWhile operators." />
     <MESSAGE value="test(sorting): Implement tests to sort the contents in a stream&#10;&#10;This test shows how to sort the content in a stream using the sorted&#10;operator, either with or without a comparator." />
-    <option name="LAST_COMMIT_MESSAGE" value="test(sorting): Implement tests to sort the contents in a stream&#10;&#10;This test shows how to sort the content in a stream using the sorted&#10;operator, either with or without a comparator." />
+    <MESSAGE value="test(aggregation): Implement tests to aggregate the contents in a stream&#10;&#10;This test shows how to aggregate the content in a stream using min, max,&#10;average and reduce operators." />
+    <MESSAGE value="test(checking): Implement tests to check the contents in a stream&#10;&#10;This test shows how to check the contents in a stream using anyMatch,&#10;allMatch, and noneMatch operators." />
+    <MESSAGE value="test(execution): Implement tests to know execution in a stream can run sequentially and parallel" />
+    <option name="LAST_COMMIT_MESSAGE" value="test(execution): Implement tests to know execution in a stream can run sequentially and parallel" />
   </component>
 </project>
