@@ -2,10 +2,7 @@ package setianjay.stream;
 
 import org.junit.jupiter.api.*;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -303,6 +300,76 @@ class StreamTest {
                     .count();
 
             assertEquals(8, streamSize);
+        }
+    }
+
+    @Nested
+    @DisplayName(value = "When Ordered")
+    @Order(value = 5)
+    @TestMethodOrder(value = MethodOrderer.OrderAnnotation.class)
+    class OrderedStreamTest {
+
+        @Test
+        @DisplayName(value = "with sorted with comparator")
+        @Order(value = 1)
+        void testOrderedDataWithSortedComparator() {
+            // string size comparator
+            Comparator<String> stringSizeComparator = (obj1, obj2) -> {
+                // comparing by length
+                System.out.println("Object 1: " + obj1);
+                System.out.println("Object 2: " + obj2);
+                int lengthComparison = Integer.compare(obj1.length(), obj2.length());
+
+                // if the lengthComparison are equal (return 0 or zero), sort them alphabetically
+                if (lengthComparison == 0) {
+                    return obj1.compareTo(obj2);
+                }
+
+                return lengthComparison;
+            };
+
+            List<String> sortedListFromStream = Stream.of(
+                            "Hari",
+                            "Budi",
+                            "Edi",
+                            "Gurindo",
+                            "Firman",
+                            "Setyarto",
+                            "Sudaryati",
+                            "El",
+                            "Al",
+                            "Zidan"
+                    )
+                    .sorted(stringSizeComparator)
+                    // result {Al, El, Edi, Budi, Hari, Zidan, Firman, Gurindo, Setyarto, Sudaryati}
+                    .peek(System.out::println)
+                    .toList();
+
+            assertEquals(10, sortedListFromStream.size());
+        }
+
+        @Test
+        @DisplayName(value = "with sorted without comparator")
+        @Order(value = 2)
+        void testOrderedDataWithSortedWithoutComparator() {
+            List<String> sortedListFromStream = Stream.of(
+                            "Hari",
+                            "Budi",
+                            "Edi",
+                            "Gurindo",
+                            "Firman",
+                            "Setyarto",
+                            "Sudaryati",
+                            "El",
+                            "Al",
+                            "Zidan"
+                    )
+                    .sorted()
+                    // result {Al, Budi, Edi, El, Firman, Gurindo, Hari, Setyarto, Sudaryati, Zidan}
+                    .peek(System.out::println)
+                    .toList();
+
+            assertEquals(10, sortedListFromStream.size());
         }
     }
 }
