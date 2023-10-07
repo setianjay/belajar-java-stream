@@ -46,7 +46,7 @@
     &quot;last_opened_file_path&quot;: &quot;D:/Budel/TestFolder/Array/Person.java&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.StreamTest">
+  <component name="RunManager" selected="JUnit.StreamTest$CheckedStreamTest">
     <configuration name="StreamTest$AggregateStreamTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="belajar-java-stream" />
       <extension name="coverage">
@@ -57,6 +57,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="setianjay.stream.StreamTest" />
       <option name="MAIN_CLASS_NAME" value="setianjay.stream.StreamTest$AggregateStreamTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StreamTest$CheckedStreamTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="belajar-java-stream" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="setianjay.stream.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="setianjay.stream.StreamTest" />
+      <option name="MAIN_CLASS_NAME" value="setianjay.stream.StreamTest$CheckedStreamTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -73,22 +88,6 @@
       <option name="PACKAGE_NAME" value="setianjay.stream.StreamTest" />
       <option name="MAIN_CLASS_NAME" value="setianjay.stream.StreamTest$CreateStreamTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StreamTest$CreateStreamTest.testCreateStreamFromArray" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="belajar-java-stream" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="setianjay.stream.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="setianjay.stream.StreamTest" />
-      <option name="MAIN_CLASS_NAME" value="setianjay.stream.StreamTest$CreateStreamTest" />
-      <option name="METHOD_NAME" value="testCreateStreamFromArray" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -126,11 +125,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.StreamTest$CheckedStreamTest" />
         <item itemvalue="JUnit.StreamTest" />
         <item itemvalue="JUnit.StreamTest$RetrievingStreamTest.testRetrieveStreamDataUsingDropWhile" />
         <item itemvalue="JUnit.StreamTest$CreateStreamTest" />
         <item itemvalue="JUnit.StreamTest$AggregateStreamTest" />
-        <item itemvalue="JUnit.StreamTest$CreateStreamTest.testCreateStreamFromArray" />
       </list>
     </recent_temporary>
   </component>

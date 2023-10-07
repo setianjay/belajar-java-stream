@@ -444,4 +444,52 @@ class StreamTest {
             assertEquals(3628800, result);
         }
     }
+
+    @Nested
+    @DisplayName(value = "When Checked")
+    @Order(value = 7)
+    @TestMethodOrder(value = MethodOrderer.OrderAnnotation.class)
+    class CheckedStreamTest{
+        Stream<Integer> numbers;
+
+        @BeforeEach
+        void setup(){
+            numbers = Stream.of(1, 2, 3, 4, 5, 21, 6, 7, 8, 9, 10);
+        }
+
+        @AfterEach
+        void shutdown(){
+            numbers = null;
+        }
+
+        @Test
+        @DisplayName(value = "with anyMatch")
+        @Order(value = 1)
+        void testCheckStreamWithAnyMatch(){
+            boolean isAnyMatch = numbers
+                    .anyMatch((number) -> number % 2 == 0);
+
+            assertTrue(isAnyMatch);
+        }
+
+        @Test
+        @DisplayName(value = "with allMatch")
+        @Order(value = 2)
+        void testCheckStreamWithAllMatch(){
+            boolean isAllMatch = numbers
+                    .allMatch((number) -> number % 2 == 0);
+
+            assertFalse(isAllMatch);
+        }
+
+        @Test
+        @DisplayName(value = "with noneMatch")
+        @Order(value = 3)
+        void testCheckStreamWithNoneMatch(){
+            boolean isAllNoneMatch = numbers
+                    .noneMatch((number) -> number > 22);
+
+            assertTrue(isAllNoneMatch);
+        }
+    }
 }
